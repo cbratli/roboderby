@@ -1,10 +1,17 @@
 GET STARTED
 
-1. Download ESP8266 code.
-a) Download https://www.arduino.cc/en/software
-b) Download driver if it is needed by ESP8266 example WEMOS - https://www.wemos.cc/product/d1-mini.html
-c) To add the board to arduino IDE, follow : https://github.com/esp8266/Arduino.git
-d) Change the board to version of ESP8266 you have usnig menu Tools->Board
+
+a) Open the Arduino IDE. Make sure that you are at version 1.8 or higher, if not then update your IDE with the latest version. https://www.arduino.cc/en/software
+b)  Add the ESP32 board
+Click on the File->Preferences menu item. This will open a Preferences dialog box.
+You should be on the Settings tab in the Preferences dialog box by default.
+Look for the textbox labeled “Additional Boards Manager URLs”.
+If there is already text in this box add a coma at the end of it, then follow the next step.
+Paste the following link into the text box – https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+Click the OK button to save the setting.
+c) Add board by going to Tools->Boards->Boards Manager.... Search for ESP32, and select the one from Espressif Systems
+
+d) Tools -> Library manager , search for analogwrite. Add ESP32 Analogwrite by ERROPix
 e) Tools -> Manage Libraries - Download ArduinoJson
 f) Download mosquitto executables (for sending MQTT messages) to test the robot https://mosquitto.org/download/
 g) Test that the unit is connected roboderby\manualtesting\test_esp>startListening.cmd
