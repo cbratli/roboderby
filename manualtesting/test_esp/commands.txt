@@ -1,0 +1,2 @@
+"c:\program files\mosquitto\mosquitto_pub.exe" -h iot.eclipse.org -t "roboderby/robotIn/command" -f roboderbyCmd1.txt
+

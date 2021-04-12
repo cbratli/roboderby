@@ -1,0 +1,4 @@
+{
+ "msgid":303,
+ "pwd": "pwdString",
+ "state":"ACCEPT_COMMANDS" "countdown": 10000 }

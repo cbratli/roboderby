@@ -1,0 +1,15 @@
+{
+ "player":"Playername",
+ "name":"Carname",
+ "msgid":303,
+ "pwd": "pwdString",
+  "cmd": [  
+{ "cmdId": 1, "leftMotor": 1,"rightMotor": 1, "duration_ms":  1000},
+{ "cmdId": 2, "leftMotor": -1,"rightMotor": 1, "duration_ms":  325},
+{ "cmdId": 3, "leftMotor": 1,"rightMotor": 1, "duration_ms":  1000},
+{ "cmdId": 4, "leftMotor": -1,"rightMotor": -1, "duration_ms":  3000},
+{ "cmdId": 5, "leftMotor": -1,"rightMotor": 1, "duration_ms":  3000},
+{ "cmdId": 6, "leftMotor": 1,"rightMotor": 1, "duration_ms":  2000}
+]
+ }
+
