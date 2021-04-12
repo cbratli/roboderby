@@ -2,10 +2,10 @@
 
 //MovingSum<int,6>  distanceCounterDiffOver6Samples;  // Note that it needs to be defined at the end of the template class.
 //int distanceMovingSum = 0;
-const int MOTOR1_PIN1 = 4;
-const int MOTOR1_PIN2 = 5;
-const int MOTOR2_PIN1 = 12;
-const int MOTOR2_PIN2 = 14;
+const int MOTOR1_PIN1 = 22;
+const int MOTOR1_PIN2 = 23;
+const int MOTOR2_PIN1 = 25;
+const int MOTOR2_PIN2 = 26;
 
 
 int prevTravelDistance = 0;
@@ -105,9 +105,3 @@ const int LED_FAST_BLINK_US = 200000; //micro seconds (us)
 /*
  * Constants
  */
-
-
-
-
-
-

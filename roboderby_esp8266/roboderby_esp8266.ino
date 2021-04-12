@@ -107,7 +107,8 @@ Kan prøve med flere kommandoer:
  */
 
 
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
+#include <analogWrite.h>
 #include "PubSubClient.h"
 #include "HardwareSerial.h"
 #include <ArduinoJson.h>
@@ -351,6 +352,7 @@ void reconnect() {
 }
 
 void setup() {
+  disableMotors();
   Serial.begin(9600);
   //Serial.begin(1152000);
   //Serial.begin(1152000*2);
@@ -369,7 +371,7 @@ void setup() {
   pinMode(MOTOR2_PIN2, OUTPUT);
 
   //digitalWrite(MOTOR1_PIN2, HIGH);
-  digitalWrite(MOTOR1_PIN1, 1);
+  //digitalWrite(MOTOR1_PIN1, 1);
 
 }
 
