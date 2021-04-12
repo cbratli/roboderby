@@ -1,0 +1,1 @@
+"c:\program files\mosquitto\mosquitto_sub" -h test.mosquitto.org -t "norbot/folkrace/cyborgproto/out" -v
