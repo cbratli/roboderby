@@ -7,11 +7,12 @@ const int MOTOR1_PIN2 = 23;
 const int MOTOR2_PIN1 = 25;
 const int MOTOR2_PIN2 = 26;
 
+const float MOTOR_PWM_RANGE = 255.0;
 
 int prevTravelDistance = 0;
 
 const int dT_ms=50;
-float dT = 20e-3;
+float dT = dT_ms/1000;
 
 struct programConfig
 {
@@ -52,6 +53,11 @@ const int GAMESTATE_ACCEPT_PROGRAMMING = 2;
 const int GAMESTATE_PROGRAMMING_RECEIVED_SOON_TO_RUN = 3;
 const int GAMESTATE_RUN_COMMANDS = 4;
 const int GAMESTATE_ROUND_CLEANUP = 5;
+
+const int PS4STATE_READY_FOR_INPUT = 1;
+const int PS4STATE_GETTING_INPUTS_L2 = 2;
+const int PS4STATE_GETTING_INPUTS_LEFTSTICK = 3;
+StateMachine PS4ControllerStateMachine(PS4STATE_READY_FOR_INPUT);
 
 
 StateMachine EscStateMachine(GAMESTATE_INIT);
