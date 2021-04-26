@@ -1,8 +1,8 @@
 void runPS4ControllerEngine()
 {
-          bool hasPS4ControllerInputR2L2 = PS4.L2()||PS4.R2();
+          bool hasPS4ControllerInputR2L2 = (PS4.L2()||PS4.R2()) && PS4.isConnected();
           
-          bool hasPS4ControllerInputLeftStick = abs(PS4.LStickX()) > 10 || abs(PS4.LStickY()) > 10;
+          bool hasPS4ControllerInputLeftStick = (abs(PS4.LStickX()) > 10 || abs(PS4.LStickY()) > 10) && PS4.isConnected();
           
           
     
