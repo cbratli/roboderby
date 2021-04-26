@@ -6,7 +6,7 @@
  */
 
 
-#include "stateMachine.h"
+#include "StateMachine.h"
 
 StateMachine::StateMachine(int16_t initialState)
 {
@@ -65,4 +65,3 @@ void StateMachine::setStatePersistency_ms(int16_t statePersistency_ms)
 {
 	this->statePersistency_ms = statePersistency_ms;
 }
-

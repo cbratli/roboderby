@@ -1,6 +1,7 @@
 void runPS4ControllerEngine()
 {
-          bool hasPS4ControllerInputR2L2 = (PS4.L2()||PS4.R2()) && PS4.isConnected();
+          
+          bool hasPS4ControllerInputR2L2 = (PS4.L2()||PS4.R2()||PS4.L1()||PS4.R1()) && PS4.isConnected();
           bool hasPS4ControllerInputLeftStick = (abs(PS4.LStickX()) > 10 || abs(PS4.LStickY()) > 10) && PS4.isConnected();
     
           switch (PS4ControllerStateMachine.getCurrentStateAndUpdateMachine())
@@ -29,8 +30,8 @@ void runPS4ControllerEngine()
               {  
                client.publish(mqttChannelOut, "INFO:PS4STATE_GETTING_INPUTS_L2");
               }
-                setLeftMotorPwm(((float)PS4.L2Value())/255.0);
-                setRightMotorPwm(((float)PS4.R2Value())/255.0);
+                setLeftMotorPwm(((float)(PS4.L2Value()-PS4.L1()*255.0))/255.0);
+                setRightMotorPwm(((float)(PS4.R2Value()-PS4.R1()*255.0))/255.0);
 
               if (!hasPS4ControllerInputR2L2) {
                 disableMotors();

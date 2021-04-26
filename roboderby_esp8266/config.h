@@ -1,7 +1,9 @@
 #include "StateMachine.h"
 
-char* bluetoothIdPS4ControllerWillConnectTo = "94:e6:f7:20:bb:69";
-const int MOTOR1_PIN1 = 22;
+//char* bluetoothIdPS4ControllerWillConnectTo = "94:e6:f7:20:bb:69";
+char* bluetoothIdPS4ControllerWillConnectTo = "E4:A7:A0:21:E9:AD";
+const int MOTOR1_PIN1 = 21;
+//const int MOTOR1_PIN1 = 22;
 const int MOTOR1_PIN2 = 23;
 const int MOTOR2_PIN1 = 25;
 const int MOTOR2_PIN2 = 26;
