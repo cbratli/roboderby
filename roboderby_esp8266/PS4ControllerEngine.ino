@@ -1,3 +1,12 @@
+ enum PS4ControllerState {
+    READY_FOR_INPUT,
+    GETTING_INPUTS_L2,
+    GETTING_INPUTS_LEFTSTICK
+    };
+StateMachine PS4ControllerStateMachine(PS4ControllerState::READY_FOR_INPUT);
+
+
+
 void runPS4ControllerEngine()
 {
           

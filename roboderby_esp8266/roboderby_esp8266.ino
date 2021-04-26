@@ -665,7 +665,7 @@ void loop() {
   Serial.println("*****DONE RUNNING cmds ****** ");
   
   disableMotors();
-  GameStateMachine.transitionToState(gameState::INIT);
+  //GameStateMachine.transitionToState(gameState::INIT);
   
   hasCommands = false;
   runningCommands = false;

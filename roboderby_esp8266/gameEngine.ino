@@ -1,3 +1,13 @@
+enum gameState {
+  INIT,
+  ACCEPT_PROGRAMMING,
+  PROGRAMMING_RECEIVED_SOON_TO_RUN,
+  RUN_COMMANDS,
+  ROUND_CLEANUP
+ };
+ StateMachine GameStateMachine(gameState::INIT);
+
+
 void runGameEngine()
 {
           switch (GameStateMachine.getCurrentStateAndUpdateMachine())
