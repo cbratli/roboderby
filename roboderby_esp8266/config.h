@@ -1,5 +1,6 @@
 #include "StateMachine.h"
 
+char* bluetoothIdPS4ControllerWillConnectTo = "94:e6:f7:20:bb:69";
 //MovingSum<int,6>  distanceCounterDiffOver6Samples;  // Note that it needs to be defined at the end of the template class.
 //int distanceMovingSum = 0;
 const int MOTOR1_PIN1 = 22;

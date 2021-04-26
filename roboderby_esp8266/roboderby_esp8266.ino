@@ -399,7 +399,7 @@ xTaskCreatePinnedToCore(
                     0);
 
 
-PS4.begin("94:e6:f7:20:bb:69");
+PS4.begin(bluetoothIdPS4ControllerWillConnectTo);
 Serial.println("Initialization PS4 controller ready!");
 
 if(PS4.isConnected()) {
