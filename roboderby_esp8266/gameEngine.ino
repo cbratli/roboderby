@@ -1,73 +1,69 @@
 void runGameEngine()
 {
-      
-          switch (EscStateMachine.getCurrentStateAndUpdateMachine())
+          switch (GameStateMachine.getCurrentStateAndUpdateMachine())
           {
-              case GAMESTATE_INIT:
-           // case ESC_STATE_INIT:
-               if (EscStateMachine.isEnteringState())
+              case gameState::INIT:
+               if (GameStateMachine.isEnteringState())
               {  
                 // Just to show how it works.
-               client.publish(mqttChannelOut, "INFO:GAMESTATE_INIT");
+               client.publish(mqttChannelOut, "INFO:GAMESTATE::INIT");
               }
 
-              if (EscStateMachine.getTotalTimeInState_ms() > 700)
+              if (GameStateMachine.getTotalTimeInState_ms() > 700)
                 {
-                  //EscStateMachine.transitionToState(ESC_STATE_READY_TO_START);    
-                  EscStateMachine.transitionToState(GAMESTATE_ACCEPT_PROGRAMMING);    
+                  GameStateMachine.transitionToState(gameState::ACCEPT_PROGRAMMING);    
                 }
               break;  
           
-            case GAMESTATE_ACCEPT_PROGRAMMING:
-            if (EscStateMachine.isEnteringState())
+            case gameState::ACCEPT_PROGRAMMING:
+            if (GameStateMachine.isEnteringState())
               {  
-               client.publish(mqttChannelOut, "INFO:GAMESTATE_ACCEPT_PROGRAMMING");
+               client.publish(mqttChannelOut, "INFO:GAMESTATE::ACCEPT_PROGRAMMING");
               }
               
-              if (EscStateMachine.getTotalTimeInState_ms() > TIME_TO_ACCEPT_COMMANDS)
+              if (GameStateMachine.getTotalTimeInState_ms() > TIME_TO_ACCEPT_COMMANDS)
               {
-                EscStateMachine.transitionToState(GAMESTATE_PROGRAMMING_RECEIVED_SOON_TO_RUN);    
+                GameStateMachine.transitionToState(gameState::PROGRAMMING_RECEIVED_SOON_TO_RUN);    
               }
               break;
             
-            case GAMESTATE_PROGRAMMING_RECEIVED_SOON_TO_RUN:
-              if (EscStateMachine.isEnteringState())
+            case gameState::PROGRAMMING_RECEIVED_SOON_TO_RUN:
+              if (GameStateMachine.isEnteringState())
               {  
-               client.publish(mqttChannelOut, "GAMESTATE_PROGRAMMING_RECEIVED_SOON_TO_RUN:");
+               client.publish(mqttChannelOut, "GAMESTATE::PROGRAMMING_RECEIVED_SOON_TO_RUN:");
               }
 
-              if (EscStateMachine.getTotalTimeInState_ms() > TIME_IN_RECEIVED_SOON_TO_RUN)
+              if (GameStateMachine.getTotalTimeInState_ms() > TIME_IN_RECEIVED_SOON_TO_RUN)
               {
-                EscStateMachine.transitionToState(GAMESTATE_RUN_COMMANDS);    
+                GameStateMachine.transitionToState(gameState::RUN_COMMANDS);    
               }
               break;
 
 
-            case GAMESTATE_RUN_COMMANDS:
-              if (EscStateMachine.isEnteringState())
+            case gameState::RUN_COMMANDS:
+              if (GameStateMachine.isEnteringState())
               {  
-                client.publish(mqttChannelOut, "GAMESTATE_RUN_COMMANDS:");
+                client.publish(mqttChannelOut, "GAMESTATE::RUN_COMMANDS:");
               }
 
-              if (EscStateMachine.getTotalTimeInState_ms() > T_RUN_COMMAND)
+              if (GameStateMachine.getTotalTimeInState_ms() > T_RUN_COMMAND)
               {
-                EscStateMachine.transitionToState(GAMESTATE_ROUND_CLEANUP);    
+                GameStateMachine.transitionToState(gameState::ROUND_CLEANUP);    
               }
             break;
           
 
-              case GAMESTATE_ROUND_CLEANUP:
-              if (EscStateMachine.isEnteringState())
+              case gameState::ROUND_CLEANUP:
+              if (GameStateMachine.isEnteringState())
               {  
-                client.publish(mqttChannelOut, "GAMESTATE_RUN_COMMANDS:");
+                client.publish(mqttChannelOut, "gameState::RUN_COMMANDS:");
               }
 
-              if (EscStateMachine.getTotalTimeInState_ms() > T_CLEANUP)
+              if (GameStateMachine.getTotalTimeInState_ms() > T_CLEANUP)
               {
-                EscStateMachine.transitionToState(GAMESTATE_INIT);    
+                GameStateMachine.transitionToState(gameState::INIT);
               }
             break;
           }
     
 }
-
