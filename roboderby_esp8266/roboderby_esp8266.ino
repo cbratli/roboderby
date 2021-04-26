@@ -179,7 +179,16 @@ int msgIndex = 0; // Index into array; where to store the character
 String messageToSend = "";
 
 void Task1code( void * pvParameters ){
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+
   for(;;){
+    if (!client.connected()) {
+      reconnect();
+    } 
+    client.loop();
+
     delay(1000);
     Serial.print("Task1 running on core ");
     Serial.println(xPortGetCoreID());
@@ -374,10 +383,7 @@ void setup() {
   //Serial.begin(1152000*2);
   //Serial.begin(4608000);
   //Serial.setRxBufferSize(10240);
-  setup_wifi();
   //client.setServer(mqtt_server, 1883);
-  client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
   pinMode(LED_BUILTIN, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
   lastMsg = millis();
 
@@ -590,11 +596,6 @@ void PS4Controller()
 
 void loop() {
  
-  if (!client.connected()) {
-    reconnect();
-  } 
-  client.loop();
-
   PS4Controller();
   runGameEngine();
   runPS4ControllerEngine();
